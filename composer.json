@@ -1,0 +1,23 @@
+{
+  "name": "mam/seocheckerapi",
+  "description": "Used as an add-on for mam/linkbuilding plugin to auto update the resources metrics using SEO CHECKER API",
+  "minimum-stability": "dev",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Ali",
+      "email": "ali.alsalti1992@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MAM\\Plugin\\" : "inc/"
+    }
+  },
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*",
+    "vlucas/phpdotenv": "5.3.x-dev"
+  }
+}
