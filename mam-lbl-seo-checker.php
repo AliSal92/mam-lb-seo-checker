@@ -35,13 +35,16 @@ defined('ABSPATH') or die('</3');
 /**
  * Require once the Composer Autoload
  */
-if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
-    require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+    require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
+
+
+var_dump($_ENV['API_KEY']);
 
 /**
  * Initialize and run all the core classes of the plugin
  */
-if ( class_exists( 'MAM\Plugin\Init' ) ) {
+if (class_exists('MAM\Plugin\Init')) {
     Init::register_services();
 }
