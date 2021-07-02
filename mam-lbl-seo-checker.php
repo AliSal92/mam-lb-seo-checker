@@ -23,6 +23,7 @@
 
 namespace MAM;
 
+use Dotenv\Dotenv;
 use MAM\Plugin\Init;
 
 
@@ -40,7 +41,13 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
 }
 
 
-var_dump($_ENV['API_KEY']);
+/**
+ * Initialize .env
+ */
+if (class_exists('Dotenv\Dotenv')) {
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
 
 /**
  * Initialize and run all the core classes of the plugin
