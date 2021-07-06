@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MAM\Plugin\Services;
+namespace MAM\SEOChecker\Services;
 
 interface ServiceInterface {
 

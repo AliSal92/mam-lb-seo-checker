@@ -23,8 +23,7 @@
 
 namespace MAM;
 
-use Dotenv\Dotenv;
-use MAM\Plugin\Init;
+use MAM\SEOChecker\Init;
 
 
 /**
@@ -40,18 +39,22 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-
-/**
- * Initialize .env
- */
-if (class_exists('Dotenv\Dotenv')) {
-    $dotenv = Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-}
-
 /**
  * Initialize and run all the core classes of the plugin
  */
-if (class_exists('MAM\Plugin\Init')) {
+if (class_exists('MAM\SEOChecker\Init')) {
     Init::register_services();
 }
+
+function mam_lb_seo_checker_activation() {
+    if ( ! wp_next_scheduled( 'update_metrics' ) ) {
+        wp_schedule_event( time(), 'daily', 'update_metrics' );
+    }
+}
+register_activation_hook( __FILE__, 'mam_lb_seo_checker_activation' );
+
+
+function mam_lb_seo_checker_deactivation() {
+    wp_clear_scheduled_hook( 'update_metrics' );
+}
+register_deactivation_hook( __FILE__, 'mam_lb_seo_checker_deactivation' );

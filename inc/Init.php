@@ -1,9 +1,9 @@
 <?php
 
 
-namespace MAM\Plugin;
+namespace MAM\SEOChecker;
 
-use MAM\Plugin\Services\Admin\UpdateMetrics;
+use MAM\SEOChecker\Services\Admin\UpdateMetrics;
 
 final class Init
 {

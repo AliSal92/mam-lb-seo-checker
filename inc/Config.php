@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MAM\Plugin;
+namespace MAM\SEOChecker;
 
 // Singleton class
 class Config
@@ -30,6 +30,11 @@ class Config
     public $actual_url;
 
     /**
+     * @var string SEO Checker API Key (from the settings page)
+     */
+    public $api_key;
+
+    /**
      * @var Config Used for singleton class setup
      */
     private static $instance;
@@ -41,6 +46,7 @@ class Config
     {
         $this->plugin_url = plugin_dir_url(__DIR__);
         $this->plugin_path = plugin_dir_path(__DIR__);
+        $this->api_key = get_field('api_key', 'option');
         $this->plugin_basename = plugin_basename(plugin_dir_path(__DIR__) . '/mam-reaxml-properties.php');
         $this->actual_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     }
