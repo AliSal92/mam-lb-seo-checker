@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: MAM Linkbuilding SEO CHECKER ADD ON
+ * Plugin Name: MAM Linkbuilding Auto Update Metrics
  * Plugin URI: https://github.com/AliSal92/mam-lb-seo-checker
  * Description: Used as an add-on for mam/linkbuilding plugin to auto update the resources metrics using SEO CHECKER API
  * Version: 1.0
