@@ -197,13 +197,15 @@ class UpdateMetrics implements ServiceInterface
     /**
      * Update the resources metrics if an update is required (2 weeks)
      */
-    public static function update_metrics()
+    public static function update_metrics($id = null)
     {
         //  update only one selectedresource
         if (isset($_GET['website'])) {
             $id = $_GET['website'];
             UpdateMetrics::update_resource_metrics($id);
-        } else {
+        } if($id){
+            UpdateMetrics::update_resource_metrics($id);
+        }else {
             // update all resources
             $query = UpdateMetrics::get_all_resources_ids();
             if (!$query->have_posts()) {
